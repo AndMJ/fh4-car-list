@@ -12,7 +12,7 @@
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-          <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+          <input @input="$emit('car-to-search', searchCar)" v-model="searchCar" type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
         </form>
       </div>
     </div>
@@ -21,6 +21,12 @@
 
 <script>
 export default {
-  name: "HeaderComponent"
+  name: "HeaderComponent",
+  data(){
+    return {
+      searchCar: ""
+    }
+  },
+  emits: ['car-to-search']
 }
 </script>

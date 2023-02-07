@@ -12,7 +12,7 @@
 export default {
   name:"cardComponent",
   props: {
-    carData: Array
+    carData: Object
   }
 }
 </script>

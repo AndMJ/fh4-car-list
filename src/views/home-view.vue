@@ -6,11 +6,12 @@
           <Button @btn-click="formToggle = !formToggle" :class="formToggle == true ? 'btn btn-warning' : 'btn btn-success'" :text="formToggle == true ? 'Close' : 'New Car'"></Button>
         </div>
       </div>
-      <formAddCar v-show="formToggle"></formAddCar>
+      <formAddCar v-show="formToggle" @add-new-car="addNewCar"></formAddCar>
     </div>
 
-    <div class="col-lg-3 col-md-6 p-3" v-for="car in cars" :key="car.id">
+    <div class="col-lg-3 col-md-6 p-3" v-for="car in searchByName()" :key="car.id">
       <Card :carData="car"></Card>
+      <!--TODO: if no car in list, show "not found" or something-->
     </div>
   </div>
 </template>
@@ -22,6 +23,10 @@ import Button from "@/components/Button.vue";
 
 export default {
   name: "home-view",
+  props:{
+    cars: Array,
+    CarName: String
+  },
   components: {
     Card,
     formAddCar,
@@ -29,12 +34,19 @@ export default {
   },
   data(){
     return {
-      cars: [],
       formToggle: false
     }
   },
-  beforeMount() {
-    this.cars.push({ id:4562, name:"Toyota", year:"1999" },{ id:7892, name:"Nissan", year:"2000" },{ id:8729, name:"Mazda", year:"1998" })
-  }
+  methods:{
+    searchByName(){
+      let carList = this.cars.filter((car) => car.name.toLowerCase().includes(this.$props.CarName))
+      console.log(carList)
+      return carList
+    },
+    addNewCar(newCar){
+      this.$emit("add-new-car", newCar)
+    }
+  },
+  emits:['add-new-car']
 }
 </script>

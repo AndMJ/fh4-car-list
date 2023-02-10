@@ -9,7 +9,7 @@
         <label for="year" class="form-label">Car Year</label>
         <input class="form-control" v-model="year" name="year" placeholder="car year">
       </div>
-      <button type="submit" class="btn btn-success">save</button>
+      <button type="submit" class="btn btn-success">Add</button>
     </form>
   </div>
 </template>
@@ -28,6 +28,9 @@ export default {
       e.preventDefault()
 
       this.$emit('add-new-car', {name: this.name, year: this.year})
+
+      this.name = ""
+      this.year = ""
     }
   },
   emits: ['add-new-car']

@@ -7,12 +7,16 @@
         </div>
       </div>
       <formAddCar v-show="formToggle" @add-new-car="addNewCar"></formAddCar>
+
+      <hr>
+
+      <div class="row">
+        <div class="col-lg-3 col-md-6 p-3" v-for="car in searchByName()" :key="car.id">
+          <Card :carData="car" ></Card>
+        </div>
+      </div>
     </div>
 
-    <div class="col-lg-3 col-md-6 p-3" v-for="car in searchByName()" :key="car.id">
-      <Card :carData="car"></Card>
-      <!--TODO: if no car in list, show "not found" or something-->
-    </div>
   </div>
 </template>
 

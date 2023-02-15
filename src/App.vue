@@ -37,7 +37,24 @@ export default {
     }
   },
   beforeMount() {
-    this.cars.push({ id:4562, name:"Toyota", year:"1999" },{ id:7892, name:"Nissan", year:"2000" },{ id:8729, name:"Mazda", year:"1998" })
+    this.cars.push(
+      {
+        name: "124 Spider",
+        id: 2740,
+        year: 2017,
+        manufacturer: "Abarth",
+        type: "Autoshow",
+        image: "124 SPIDER 2017 ABARTH.jpg"
+      },
+      {
+        name: "695 Biposto",
+        id: 2489,
+        year: 2016,
+        manufacturer: "Abarth",
+        type: "Autoshow",
+        image: "695 BIPOSTO 2016 ABARTH.jpg"
+      }
+    )
   }
 }
 </script>

@@ -1,9 +1,15 @@
 <template >
   <div class="card">
-    <!--<img src="..." class="card-img-top" alt="...">-->
+    <img :src="[carData.image ? require('@/assets/car_images/' + carData.image) : require('@/assets/flat-retro-car.svg')]" class="card-img-top" alt="carData.name">
     <div class="card-body">
-      <h5 class="card-title">{{ carData.name }}</h5>
-      <p class="card-text">{{ carData.year }}</p>
+      <h3 class="card-title">{{ carData.manufacturer }} &sdot; {{ carData.name }}</h3>
+      <h5 class="card-text">{{ carData.year }} &sdot; {{ carData.type }}</h5>
+
+    </div>
+    <div class="card-footer">
+      <div class="row">
+        <p class="col card-text">ID: {{ carData.id }}</p>
+      </div>
     </div>
   </div>
 </template>

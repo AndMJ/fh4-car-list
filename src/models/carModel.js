@@ -25,4 +25,4 @@ async function getCarById (url, id) {
     })
 }
 
-export default {getCarList,getCarById}
+export default {getCarList, getCarById}

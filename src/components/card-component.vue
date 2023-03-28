@@ -1,6 +1,6 @@
 <template >
   <div class="card">
-    <img :src="[carData.image ? require('@/assets/car_images/' + carData.image) : require('@/assets/flat-retro-car.svg')]" class="card-img-top" alt="carData.name">
+    <img :src="[getImage(carData.image)]" class="card-img-top" alt="car image">
     <div class="card-body">
       <p hidden>{{carData.id}}</p>
       <h3 class="card-title">{{ carData.manufacturer }} &sdot; {{ carData.name }}</h3>
@@ -20,6 +20,15 @@ export default {
   name:"cardComponent",
   props: {
     carData: Object
+  },
+  methods: {
+      getImage(imagePathName){
+          try {
+              return require('@/assets/car_images/' + imagePathName)
+          } catch (e){
+              return require('@/assets/NOT_FOUND.jpg')
+          }
+      }
   }
 }
 </script>

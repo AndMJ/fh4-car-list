@@ -9,6 +9,8 @@
 
 <script>
 import HeaderComponent from "@/components/header-component.vue"
+import carModel from "@/models/carModel"
+
 export default {
   name: "App",
   components: {
@@ -34,27 +36,13 @@ export default {
       }
 
       this.cars.push(new_car)
-    }
+    },
+
+
   },
-  beforeMount() {
-    this.cars.push(
-      {
-        name: "124 Spider",
-        id: 2740,
-        year: 2017,
-        manufacturer: "Abarth",
-        type: "Autoshow",
-        image: "124 SPIDER 2017 ABARTH.jpg"
-      },
-      {
-        name: "695 Biposto",
-        id: 2489,
-        year: 2016,
-        manufacturer: "Abarth",
-        type: "Autoshow",
-        image: "695 BIPOSTO 2016 ABARTH.jpg"
-      }
-    )
+  async beforeMount() {
+    this.cars = await carModel.getCarList(this.$API_URL + "/api/car/list")
+
   }
 }
 </script>

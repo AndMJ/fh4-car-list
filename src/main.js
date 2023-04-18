@@ -5,8 +5,8 @@ import router from './router'
 let app = createApp(App)
 
 // GLOBALS DECLARATION
-// API_URL
-app.config.globalProperties.$API_URL = "http://127.0.0.1:8080"
+// API_URI
+app.config.globalProperties.$API_URI = "http://192.168.1.35:8080"
 
 // ROUTER
 app.use(router).mount('#app')

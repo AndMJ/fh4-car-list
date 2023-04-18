@@ -41,7 +41,7 @@ export default {
 
   },
   async beforeMount() {
-    this.cars = await carModel.getCarList(this.$API_URL + "/api/car/list")
+    this.cars = await carModel.getCarList(this.$API_URI + "/api/car/list")
 
   }
 }

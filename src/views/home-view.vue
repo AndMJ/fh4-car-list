@@ -43,7 +43,7 @@ export default {
   },
   methods:{
     searchByName(){
-      let carList = this.cars.filter((car) => car.name.toLowerCase().includes(this.$props.CarName))
+      let carList = this.cars.filter((car) => car.name.toLowerCase().includes(this.$props.CarName.toLowerCase()))
       console.log(carList)
       return carList
     },

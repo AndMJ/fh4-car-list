@@ -3,8 +3,8 @@
     <img :src="[getImage(carData.image)]" class="card-img-top" alt="car image">
     <div class="card-body">
       <p hidden>{{carData.id}}</p>
-      <h3 class="card-title">{{ carData.manufacturer }} &sdot; {{ carData.name }}</h3>
-      <h5 class="card-text">{{ carData.year }} &sdot; {{ carData.type }}</h5>
+      <h4 class="card-title">{{ carData.manufacturer }} &sdot; {{ carData.name }}</h4>
+      <h6 class="card-text">{{ carData.year }} &sdot; {{ carData.type }}</h6>
 
     </div>
     <div class="card-footer">
